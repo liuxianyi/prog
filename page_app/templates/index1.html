@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CXLM</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/dataShow.css">
+    <link rel="stylesheet prefetch" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/fileinput.min.css">
+    <link rel="shortcut icon" href="../static/pic/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- 这个是画布 -->
+    <div id="canvas"></div>
+    <!-- title and tool bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark dark-transp-bg">
+        <!-- Icon and text -->
+        <a class="navbar-brand" href="index1.html">
+            <img src="../static/pic/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            CXLM
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Function list and expand function location -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link1</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Active<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Function
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Func1</a>
+                        <a class="dropdown-item" href="#">Func2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Func3</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- File Input -->
+        <form class="bg-dark text-light form-inline my-2 my-lg-0" onsubmit="return false;">
+            <input class="file" type="file" name="file" id="toUpload" value="put your file here(.txt/.xls)" aria-label="File">
+        </form>
+    </nav>
+
+    <!-- main content -->
+    <div class="container-fluid h-100">
+        <div class="row">
+            <div class="col">
+                <iframe class="btn-frame" frameborder="0" scrolling="no" src="../static/plugin/menu/btn_group.html"></iframe>
+            </div>
+        </div>
+        <div class="row h-adj">
+            <div class="col-8 m-2 gra-con">
+                <p class="display-1 text-light">CHANGE ME</p>
+            </div>
+            <div class="col m-2 gra-con">
+                <p class="display-1 text-light">CHANGE ME</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal section -->
+    <!-- Normal Modal With Buttons -->
+    <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel1">
+                        按钮1 标题
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <div class="modal-body">
+                    点击关闭按钮检查事件功能。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" id="SubmitModal1">
+                        提交更改
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Modal With Form -->
+    <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel2">
+                        按钮1 标题
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form1">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input name="text" type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal2">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/js/fileinput.min.js"></script>
+    <script type="text/javascript" src="../static/js/file-zh.js"></script>
+    <script type="text/javascript" src="../static/js/fire.js"></script>
+    <script type="text/javascript" src="../static/js/dataShow.js"></script>
+</body>
+
+</html>

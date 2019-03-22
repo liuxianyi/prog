@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        <a href="add1/13/14/">go to cal</a>
+
+    </p>
+    <div>
+        <form method="POST" class="file_form" action="{% url 'upload' %}" name="form_file" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input class="up-files" type="file" name="file_name">
+            <input type="submit" value="submit">
+            <input class="wage-add-btn" type="button" value="ajax">
+        </form>
+        <table>
+            <tbody>
+            {% for i in list %}
+                <tr style="border-bottom: #1c94c4 solid 1px">
+                     <td><span>{{ i.0 }}</span></td>
+                     <td><span>{{ i.1 }}</span></td>
+                     <td><span>{{ i.2 }}</span></td>
+                     <td><span>{{ i.3 }}</span></td>
+                     <td><span>{{ i.4 }}</span></td>
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+
+        <span>total rows{{ data.rows }}</span>
+        <span>total rows{{ data.cols }}</span>
+    </div>
+</body>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+<script>/*
+// https://blog.csdn.net/douyunqian668/article/details/53190421
+$('.wage-add-btn').click(function () {
+
+    $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+         async : false
+    });
+     if(confirm("请仔细检查表格确认上传")) {
+          //var a = $('.a').val();
+         var files_name = $('.up-files').val();
+         var files = $('.up-files')[0].files[0];
+         //console.log(files_name);
+         console.log(files);
+         var formD = new FormData();
+         formD.append("file_name", files_name);
+         formD.append("file", files)
+         //form.append("a", a);
+         $.ajax({
+            type:'POST',
+            data: formD,
+            url: '\{\% url 'ajaxload' %}',
+            cache: false,
+            processData:false,
+            contentType:false,
+            //dataType: 'json',
+            success: function(){
+                alert('上传成功！')
+            },
+            error: function(){
+                alert('失败了，再试一次！')
+            }
+        });
+        return false;
+     }
+});*/
+</script>
+</html>

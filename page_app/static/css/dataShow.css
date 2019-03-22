@@ -1,0 +1,41 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+#canvas,
+canvas {
+    background: #000;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.dark-transp-bg {
+    background-color: rgba(52, 58, 64, 0.5) !important
+}
+
+.btn-frame {
+    min-height: 30em;
+    width: 100%;
+    height: 100%;
+}
+
+.gra-con {
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 100;
+}
+
+.yscroll {
+    overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.h-adj {
+}
