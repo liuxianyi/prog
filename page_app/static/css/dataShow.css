@@ -9,7 +9,6 @@ body {
 
 #canvas,
 canvas {
-    background: #000;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -18,7 +17,7 @@ canvas {
 }
 
 .dark-transp-bg {
-    background-color: rgba(52, 58, 64, 0.5) !important
+    background-color: rgba(52, 58, 64, 0.6) !important
 }
 
 .btn-frame {
@@ -28,7 +27,7 @@ canvas {
 }
 
 .gra-con {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 100;
 }
 
@@ -38,4 +37,8 @@ canvas {
 }
 
 .h-adj {
+}
+
+.cur-pointer{
+    cursor: pointer;
 }

@@ -8,13 +8,12 @@ $("#toUpload").fileinput({
     maxFileCount: 1, //表示允许同时上传的最大文件个数
     showPreview: false, // 不显示拖拽区
     showUpload: false,
-    captionClass: 'text-light',
     removeIcon: '<i class="icon-remove"></i>',
-    removeClass: 'btn btn-outline-light my-2 my-sm-0',
+    removeClass: 'btn btn-outline-danger my-2 my-sm-0',
     previewFileIcon: '<i class="icon-ok"></i>', // 文件图标
-    browseClass: 'btn btn-outline-light my-2 my-sm-0',
-    captionClass: 'bg-dark text-light',
-    mainClass: 'bg-dark text-light',
+    browseClass: 'btn btn-outline-primary my-2 my-sm-0',
+    // captionClass: 'dark-transp-bg text-light',
+    // mainClass: 'dark-transp-bg text-light',
 });
 
 $('#toUpload').on('fileloaded', function (event, file, previewId, index, reader) {  // 文件成功加载监听
@@ -35,11 +34,16 @@ $('#toUpload').on('fileselect', function (event, num) {  // 文件选择监听
 
 setTimeout(function () {
     $($(".btn-frame").contents()[0].getElementsByClassName("btn-icon")).click(function () {
-        switch ($(this).attr("data")) {
-            /* 
+        ctrl($(this).attr("data"));
+    })
+}, 1000);
+
+function ctrl(con){
+    switch (con) {
+            /*
              * 弹窗相关文档参阅：
              * http://www.runoob.com/bootstrap/bootstrap-modal-plugin.html
-             * http://jschr.github.io/bootstrap-modal/ 
+             * http://jschr.github.io/bootstrap-modal/
              */
             case '1':
                 var modal1 = $("#Modal1");
@@ -85,5 +89,34 @@ setTimeout(function () {
             default:
                 console.log($(this).attr("data"))
         }
-    })
-}, 1000)
+}
+
+var his = function () {
+    let titleObj = $("#historyTitle");
+    let showObj = [{
+			"name": "标题1",
+			"time": "2018.3.23",
+            "info": "这个对象可以由JS动态替换"
+		}, {
+			"name": "标题2",
+			"time": "2018.3.23"
+		}, {
+			"name": "标题3",
+			"time": "2018.3.23",
+			"info": "附加信息"
+		}];
+    titleObj.html("历史记录");
+    $("#historyModalLabel").modal();
+    let modalDiv = $("#historyModalDiv");
+    modalDiv.html(''); // 清空原有内容
+    let ul = $(`<ul class="list-group list-group-flush">`);
+    for (key in showObj) {
+        let ele=showObj[key];
+            ul.append(`<li class="list-group-item`+(ele.info? (' cur-pointer" onclick="alert(\''+ele.info+'\')"') :'"')+`>`
+                + ele.name + `<span class="float-right text-muted">` + ele.time + `</span></li>`)
+    }
+        if (!showObj.length) {
+            ul.append(`<li class="list-group-item">Empty</li>`);
+        }
+    modalDiv.append(ul);
+}
