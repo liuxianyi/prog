@@ -228,8 +228,8 @@ fire.step = function () {
 
 /* 绘制所有对象 */
 fire.draw = function () {
-    // 背景黑色
-    fire.ctx.fillStyle = 'hsla(0, 0%, 0%, 0.1)';
+    // 背景白色
+    fire.ctx.fillStyle = 'hsla(0, 0%, 80%, 0.1)';
     fire.ctx.fillRect(0, 0, fire.w, fire.h);
 
     // 图像重叠时拼合图像，包括颜色和形状
@@ -242,7 +242,7 @@ fire.draw = function () {
     // 覆盖图层下的图像
     fire.ctx.globalCompositeOperation = 'source-over';
     i = fire.pillarCount; // 圆颜色
-    fire.ctx.fillStyle = 'rgba(20, 20, 40, 0.3)';
+    fire.ctx.fillStyle = 'rgba(220, 220, 240, 0.3)';
     while (i-- && fire.pillars[i]) { // 绘制所有圆
         fire.pillars[i].draw();
     }
