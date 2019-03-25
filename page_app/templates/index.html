@@ -11,6 +11,7 @@
     <link rel="stylesheet prefetch" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/fileinput.min.css' %}">
     <link rel="shortcut icon" href="{% static 'pic/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
 </head>
 
 <body>
@@ -95,26 +96,11 @@
             </div>
         </div>
         <div class="row h-adj">
-            <div class="col-8 m-2 gra-con">
-                <p class="display-1 text-dark">CHANGE ME</p>
-                <p class="display-1 text-danger">CHANGE ME</p>
-                <p class="display-1 text-primary">CHANGE ME</p>
-                <p class="display-1 text-secondary">CHANGE ME</p>
-                <p class="display-1 text-success">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
+            <div class="col m-2 gra-con">
+                <table id="tableLeft"></table>
             </div>
             <div class="col m-2 gra-con">
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
-                <p class="display-1 text-light">CHANGE ME</p>
+                <table id="tableRight"></table>
             </div>
         </div>
 		<br /><br /><br />
@@ -185,20 +171,23 @@
 
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="{% static 'js/fileinput.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/file-zh.js' %}"></script>
 {#    <script type="text/javascript" src="{% static 'js/fire.js' %}"></script>#}
     <script type="text/javascript" src="{% static 'js/dataShow.js' %}"></script>
 
     <script type="text/javascript">
-            let iframe = $('#showHtml');
+        let iframe = $('#showHtml');
 
-    var showFrame = function(src){
-        console.log(src);
-        {#let ind = src.indexOf('_tu/')+4;#}
-        iframe.attr("src", '/show_html1/'+src).then(resizeIframe);
-    }
+        /** 替换图表 */
+        var showFrame = function(src){
+            console.log(src);
+            {#let ind = src.indexOf('_tu/')+4;#}
+            iframe.attr("src", '/show_html1/'+src).then(resizeIframe);
+        };
 
+        /** 重设图表居中 */
         let resizeIframe = function(){
             let width = iframe.contents().find("html").width();
             let per = ((width-800) / 2) / width *100;
@@ -210,27 +199,83 @@
 
         resizeIframe();
 
+        /** 生成历史记录 */
         var his = function () {
+            let titleObj = $("#historyTitle");
+            {% autoescape off %}
+                let showObj = {{ history }};
+                {% endautoescape %}
+            titleObj.html("历史记录");
+            $("#historyModalLabel").modal();
+            let modalDiv = $("#historyModalDiv");
+            modalDiv.html(''); // 清空原有内容
+            let ul = $(`<ul class="list-group list-group-flush">`);
+            for (key in showObj) {
+                let ele=showObj[key];
+                ul.append(`<li onclick="showFrame('`+ele.history_data_html+`')" class="list-group-item cur-pointer"><a>`
+                    + `文件名` + `<span class="float-right text-muted">` + ele.history_date + `</span></li>`)
+            }
+            if (!showObj.length) {
+                ul.append(`<li class="list-group-item">Empty</li>`);
+            }
+            modalDiv.append(ul);
+        };
 
-    let titleObj = $("#historyTitle");
-    {% autoescape off %}
-    let showObj = {{ history }};
-    {% endautoescape %}
-    titleObj.html("历史记录");
-    $("#historyModalLabel").modal();
-    let modalDiv = $("#historyModalDiv");
-    modalDiv.html(''); // 清空原有内容
-    let ul = $(`<ul class="list-group list-group-flush">`);
-    for (key in showObj) {
-        let ele=showObj[key];
-            ul.append(`<li onclick="showFrame('`+ele.history_data_html+`')" class="list-group-item cur-pointer"><a>`
-                + `文件名` + `<span class="float-right text-muted">` + ele.history_date + `</span></li>`)
-    }
-        if (!showObj.length) {
-            ul.append(`<li class="list-group-item">Empty</li>`);
+        var renderTab = function(){
+            let dataArr = [{
+                "name": "チルノ",
+                "skill": "操纵冷气程度的能力",
+                "age": 60,
+                "home": "霧の湖",
+                "color": "blue"
+            }, {
+                "name": "レミリア・スカーレット",
+                "skill": "操纵冷气程度的能力",
+                "age": 500,
+                "home": "紅魔館",
+                "color": "RED"
+            }, {
+                "name": "フランドール・スカーレット",
+                "skill": "操纵冷气程度的能力",
+                "age": 495,
+                "home": "紅魔館",
+                "color": "blue"
+            }, {
+                "name": "古明地こいし",
+                "skill": "操纵冷气程度的能力",
+                "age": 0,
+                "home": "地霊殿",
+                "color": "GREEN"
+            }, {
+                "name": "古明地さとり",
+                "skill": "操纵冷气程度的能力",
+                "age": 0,
+                "home": "地霊殿",
+                "color": "PURPLE"
+            }];
+            let tabConfig = {
+                data: dataArr,
+                columns: [{
+                  field: 'name',
+                  title: '名字',
+                }, {
+                  field: 'skill',
+                  title: '能力'
+                }, {
+                  field: 'age',
+                  title: '年龄'
+                }, {
+                  field: 'home',
+                  title: '居住地'
+                }, {
+                  field: 'color',
+                  title: '标志颜色'
+                }]};
+            $("#tableLeft").bootstrapTable(tabConfig);
+            $("#tableRight").bootstrapTable(tabConfig);
         }
-    modalDiv.append(ul);
-};
+
+        renderTab();
 
     </script>
 </body>

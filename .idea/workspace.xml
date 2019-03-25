@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b680327a-b530-4a4b-9b93-d045d83d5584" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/history.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-05/None.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-18/None.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-18/d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-18/kong.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-18/myda.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-20/data.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-20/dataname.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_app/templates/save_backup_tu/2019-03-20/myda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_goog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_goog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_app/core/holder.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_app/core/holder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_app/static/css/dataShow.css" beforeDir="false" afterPath="$PROJECT_DIR$/page_app/static/css/dataShow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/git.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/git.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_app/static/js/dataShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/page_app/static/js/dataShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_app/templates/btn_group.html" beforeDir="false" afterPath="$PROJECT_DIR$/page_app/templates/btn_group.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/page_app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page_app/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="198" column="66" lean-forward="true" selection-start-line="198" selection-start-column="66" selection-end-line="198" selection-end-column="66" />
+            <state relative-caret-position="425">
+              <caret line="277" column="20" selection-start-line="277" selection-start-column="20" selection-end-line="277" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -67,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page_app/core/China.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+            <state relative-caret-position="105">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -88,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page_app/static/js/dataShow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1113">
-              <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+            <state relative-caret-position="399">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -113,12 +101,12 @@
       <list>
         <option value="$PROJECT_DIR$/page_app/static/css/dataShow.css" />
         <option value="$PROJECT_DIR$/page_app/templates/btn_group.html" />
-        <option value="$PROJECT_DIR$/page_app/static/js/dataShow.js" />
         <option value="$PROJECT_DIR$/data_goog/urls.py" />
         <option value="$PROJECT_DIR$/page_app/views.py" />
         <option value="$PROJECT_DIR$/page_app/core/holder.py" />
-        <option value="$PROJECT_DIR$/page_app/templates/index.html" />
         <option value="$PROJECT_DIR$/page_app/core/China.py" />
+        <option value="$PROJECT_DIR$/page_app/static/js/dataShow.js" />
+        <option value="$PROJECT_DIR$/page_app/templates/index.html" />
       </list>
     </option>
   </component>
@@ -277,23 +265,32 @@
       <option name="presentableId" value="Default" />
       <updated>1553509263430</updated>
       <workItem from="1553509264726" duration="49000" />
-      <workItem from="1553509331010" duration="9525000" />
+      <workItem from="1553509331010" duration="11668000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'liu' of https://github.com/liuxianyi/prog into js&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/modules.xml&#10;&#10;2019.3.25 前端调整">
+      <created>1553523514728</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553523514728</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9574000" />
+    <option name="totallyTimeSpent" value="11717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.2646421" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" visible="true" weight="0.2646421" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -312,6 +309,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'liu' of https://github.com/liuxianyi/prog into js&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/modules.xml&#10;&#10;2019.3.25 前端调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'liu' of https://github.com/liuxianyi/prog into js&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/modules.xml&#10;&#10;2019.3.25 前端调整" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/page_app/templates/btn_group.html">
@@ -332,13 +333,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="47" column="12" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page_app/static/js/dataShow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -373,20 +367,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_app/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/page_app/core/China.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="198" column="66" lean-forward="true" selection-start-line="198" selection-start-column="66" selection-end-line="198" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_app/core/China.py">
+    <entry file="file://$PROJECT_DIR$/page_app/static/js/dataShow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+        <state relative-caret-position="399">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_app/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="277" column="20" selection-start-line="277" selection-start-column="20" selection-end-line="277" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,8 +1,8 @@
 var dataShow = {
     uploadFile: null, // 上传的文件
 }; // 命名空间
-
-$("#toUpload").fileinput({
+var toUpload = $("#toUpload");
+toUpload.fileinput({
     language: 'zh',
     allowedFileExtensions: ['txt', 'xlsx', 'xls'], // 接受的后缀
     maxFileCount: 1, //表示允许同时上传的最大文件个数
@@ -16,17 +16,17 @@ $("#toUpload").fileinput({
     // mainClass: 'dark-transp-bg text-light',
 });
 
-$('#toUpload').on('fileloaded', function (event, file, previewId, index, reader) {  // 文件成功加载监听
+toUpload.on('fileloaded', function (event, file, previewId, index, reader) {  // 文件成功加载监听
     console.log(event);
     dataShow.uploadFile = file; // 文件对象实例
 });
 
-$('#toUpload').on('filecleared', function (event) {  // 清除按钮监听
+toUpload.on('filecleared', function (event) {  // 清除按钮监听
     console.log("filecleared");
     dataShow.uploadFile = null;
 });
 
-$('#toUpload').on('fileselect', function (event, num) {  // 文件选择监听
+toUpload.on('fileselect', function (event, num) {  // 文件选择监听
     if (num == 0) {
         dataShow.uploadFile = null;
     }
