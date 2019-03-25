@@ -10,7 +10,8 @@ import os
 from data_goog.settings import *
 import xlrd
 from page_app.core.save_helper import date_create
-
+from page_app.history import get_all_html_file
+import json
 
 def index1(request):
     return HttpResponse(u"雨")
@@ -38,11 +39,41 @@ def add_ab_(request, a, b):
 
 
 def index(request):
-    return render(request, 'index.html')
+
+    # 获取历史记录中的目录
+    templates_path_save_backup_tu = os.path.join(TEMPLATES_PATH, 'save_backup_tu')
+    list_dir = os.listdir(templates_path_save_backup_tu)
+    history_list = []
+    for dirs in list_dir:
+        templates_path_save_backup_tu_date = os.path.join(templates_path_save_backup_tu, dirs)
+        date = templates_path_save_backup_tu_date.split('\\')[-1]  # 获取时间
+        print('日期:', date)
+        html = get_all_html_file(templates_path_save_backup_tu_date)  # 获取历史html路径
+        history = {
+            'history_date': date,
+            'history_data_html': date + '/' + html[0].replace('\\', '/').split('/')[-1]
+        }
+        history_list.append(history)
+    return render(request, 'index.html', context={'history': history_list})
 
 
 def index1(request):
-    return render(request, 'index1.html')
+    # 获取历史记录中的目录
+    templates_path_save_backup_tu = os.path.join(TEMPLATES_PATH, 'save_backup_tu')
+    list_dir = os.listdir(templates_path_save_backup_tu)
+
+    for dirs in list_dir:
+        templates_path_save_backup_tu_date = os.path.join(templates_path_save_backup_tu, dirs)
+        date = templates_path_save_backup_tu_date.split('\\')[-1]  # 获取时间
+        print('日期:', date)
+        html = get_all_html_file(templates_path_save_backup_tu_date)  # 获取历史html路径
+        history = {
+            'history_date': date,
+            'history_data_html': html
+        }
+        history = json.dumps(history)
+        print(type(history), history)
+    return render(request, 'index1.html', context={'history': history})
 
 
 def btn(request):

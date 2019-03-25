@@ -49,7 +49,7 @@ class Holder(object):
             self.clear_holder()
 
         if choice == 1:
-            self.kmeans.tu_kmeans(v=data,n_c=param["n_c"],dataname="dataname")
+            self.kmeans.tu_kmeans(v=data,n_c=param["n_c"],dataname=dataname)
         if choice == 2:
             func_name=["tu_pca","tu_spca"]
             func = getattr(self.pca,func_name[other])

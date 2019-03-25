@@ -51,7 +51,7 @@
 
         <!-- Function list and expand function location -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto nav-pos">
                 <li class="nav-item">
                     <a class="nav-link" onclick="his();" href="#">History</a>
                 </li>
@@ -85,7 +85,13 @@
     <div class="container-fluid h-100 yscroll">
         <div class="row">
             <div class="col">
-                <iframe class="btn-frame" frameborder="0" scrolling="no" src="{% url 'show_html' %}"></iframe>
+                <iframe class="btn-frame" frameborder="0" scrolling="no" src="{% url 'btn_group' %}"></iframe>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <iframe id="showHtml" style="height: 800px;" class="btn-frame" frameborder="0" scrolling="no" src="{% url 'show_html' %}"></iframe>
             </div>
         </div>
         <div class="row h-adj">
@@ -184,7 +190,47 @@
 {#    <script type="text/javascript" src="{% static 'js/fire.js' %}"></script>#}
     <script type="text/javascript" src="{% static 'js/dataShow.js' %}"></script>
 
-    <script>
+    <script type="text/javascript">
+            let iframe = $('#showHtml');
+
+    var showFrame = function(src){
+        console.log(src);
+        {#let ind = src.indexOf('_tu/')+4;#}
+        iframe.attr("src", '/show_html1/'+src).then(resizeIframe);
+    }
+
+        let resizeIframe = function(){
+            let width = iframe.contents().find("html").width();
+            let per = ((width-800) / 2) / width *100;
+            iframe.css("padding-left", per+"%");
+            /*let hei = iframe.contents().find("html").height();
+            console.log(hei)
+            iframe.height(hei);*/
+        };
+
+        resizeIframe();
+
+        var his = function () {
+
+    let titleObj = $("#historyTitle");
+    {% autoescape off %}
+    let showObj = {{ history }};
+    {% endautoescape %}
+    titleObj.html("历史记录");
+    $("#historyModalLabel").modal();
+    let modalDiv = $("#historyModalDiv");
+    modalDiv.html(''); // 清空原有内容
+    let ul = $(`<ul class="list-group list-group-flush">`);
+    for (key in showObj) {
+        let ele=showObj[key];
+            ul.append(`<li onclick="showFrame('`+ele.history_data_html+`')" class="list-group-item cur-pointer"><a>`
+                + `文件名` + `<span class="float-right text-muted">` + ele.history_date + `</span></li>`)
+    }
+        if (!showObj.length) {
+            ul.append(`<li class="list-group-item">Empty</li>`);
+        }
+    modalDiv.append(ul);
+};
 
     </script>
 </body>

@@ -19,17 +19,20 @@ from django.contrib import admin
 from django.urls import path
 from page_app import views as data_view
 from data_goog.settings import *
+from django.views.static import serve
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', data_view.index1),
+    path('/', data_view.index1),
     path('add/', data_view.add_ab),
     path('add1/<int:a>/<int:b>/', data_view.add_ab_, name='add1'),
     path('index/', data_view.index, name='index'),
     path('index/upload/', data_view.upload, name='upload'),
-    path('index1', data_view.index1, name='index1'),
+    path('index1/', data_view.index1, name='index1'),
     url(r'^btn_group/$', TemplateView.as_view(template_name='btn_group.html'), name='btn_group'),
-    url(r'^show_html/$', TemplateView.as_view(template_name='save_show_tu/' + CURRENT_DATE + '/show.html'), name='show_html'),
+    url(r'^show_html/$', TemplateView.as_view(template_name='save_show_tu/' + '2019-03-21' + '/show.html'), name='show_html'),# CURRENT_DATE
     path('test/', data_view.test, name='test'),
+    url(r'^show_html1/(?P<path>.*)$', serve, {"document_root": os.path.join(TEMPLATES_PATH, 'save_backup_tu')}, name="show_html1"),
 
     path('showhtml/', data_view.show_html, name='show')
 ]

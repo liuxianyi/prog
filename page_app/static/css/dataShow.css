@@ -7,6 +7,7 @@ body {
     overflow: hidden;
 }
 
+/*
 #canvas,
 canvas {
     position: absolute;
@@ -14,7 +15,7 @@ canvas {
     width: 100%;
     left: 0;
     top: 0;
-}
+}*/
 
 .dark-transp-bg {
     background-color: rgba(52, 58, 64, 0.6) !important
@@ -38,6 +39,11 @@ canvas {
 
 .h-adj {
 }
+
+.nav-pos{
+    margin-right: 35% !important;
+    margin-left: auto;
+ }
 
 .cur-pointer{
     cursor: pointer;

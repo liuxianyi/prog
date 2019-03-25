@@ -90,7 +90,7 @@ function ctrl(con){
                 console.log($(this).attr("data"))
         }
 }
-
+/*
 var his = function () {
     let titleObj = $("#historyTitle");
     let showObj = [{
@@ -119,4 +119,4 @@ var his = function () {
             ul.append(`<li class="list-group-item">Empty</li>`);
         }
     modalDiv.append(ul);
-}
+};*/
