@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/dataShow.css' %}">
     <link rel="stylesheet prefetch" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/fileinput.min.css' %}">
+  <link href="https://cdn.bootcss.com/bootstrap-table/1.13.1/bootstrap-table.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'pic/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
 </head>
 
 <body>
@@ -95,6 +95,7 @@
                 <iframe id="showHtml" style="height: 800px;" class="btn-frame" frameborder="0" scrolling="no" src="{% url 'show_html' %}"></iframe>
             </div>
         </div>
+
         <div class="row h-adj">
             <div class="col m-2 gra-con">
                 <table id="tableLeft"></table>
@@ -107,39 +108,13 @@
     </div>
 
     <!-- Modal section -->
-    <!-- Normal Modal With Buttons -->
+    <!-- 算法1 -->
     <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel1">
-                        按钮1 标题
-                    </h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
-                    </button>
-                </div>
-                <div class="modal-body">
-                    点击关闭按钮检查事件功能。
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        关闭
-                    </button>
-                    <button type="button" class="btn btn-primary" id="SubmitModal1">
-                        提交更改
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <!-- Modal With Form -->
-    <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel2">
-                        按钮1 标题
+                        算法1
                     </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
                     </button>
@@ -147,16 +122,52 @@
                 <form onsubmit="return false" id="form1">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input name="email" type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
+                            {#选项#}
+                            <input type="hidden" name="choice" value="1"/>
+                            <label for="n_c">n_c</label>
+                            <input name="n_c" type="text" class="form-control" id="n_c" placeholder="n_c">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal1">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Modal With Form -->
+    <!-- 算法2 -->
+    <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel2">
+                        算法2
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form2">
+                    <div class="modal-body">
+                        <input type="hidden" name="choice" value="2"/>
+                        <div class="form-group">
+                            <label for="components_ratio">components_ratio</label>
+                            <input name="components_ratio" type="text" class="form-control" id="components_ratio"
+                                aria-describedby="components_ratioHelp" placeholder="components_ratio">
+                            <small id="components_ratioHelp" class="form-text text-muted">components_ratioHelp的参数说明</small>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input name="text" type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Password">
+                            <label for="components_n">components_n</label>
+                            <input name="components_n" type="text" class="form-control" id="components_n"
+                                placeholder="components_n">
+                        </div>
+                        <div class="form-group">
+                            <label for="other">other</label>
+                            <input name="other" type="text" class="form-control" id="other"
+                                placeholder="other">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -169,9 +180,182 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
+    <!-- 算法3 -->
+    <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel3">
+                        算法3
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form3">
+                    <div class="modal-body">
+                        <input type="hidden" name="choice" value="3"/>
+                        <div class="form-group">
+                            <label for="guss_choice">guss_choice</label>
+                            <input name="guss_choice" type="text" class="form-control" id="guss_choice"
+                                aria-describedby="guss_choiceHelp" placeholder="guss_choice">
+                            <small id="guss_choiceHelp" class="form-text text-muted">guss_choice的参数说明</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal3">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- 算法4 -->
+    <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel4">
+                        算法4
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form4">
+                    <div class="modal-body">
+                        <input type="hidden" name="choice" value="4"/>
+                        <div class="form-group">
+                            <label for="data_place">data_place</label>
+                            <input name="data_place" type="text" class="form-control" id="data_place"
+                                aria-describedby="data_placeHelp" placeholder="data_place">
+                            <small id="data_placeHelp" class="form-text text-muted">data_place的参数说明</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal4">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel3">
+                        算法5
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form5">
+                    <div class="modal-body">
+                        <input type="hidden" name="choice" value="5"/>
+                        <h5>貌似不需要其他参数</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal5">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="Modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel6">
+                        算法6
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form6">
+                    <div class="modal-body">
+                        <input type="hidden" name="choice" value="6"/>
+                        <div class="form-group">
+                            <label for="mst_choice">mst_choice</label>
+                            <input name="mst_choice" type="text" class="form-control" id="mst_choice"
+                                aria-describedby="mst_choiceHelp" placeholder="mst_choice">
+                            <small id="mst_choiceHelp" class="form-text text-muted">mst_choice的参数说明</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal6">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="Modal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel7" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel7">
+                        算法7
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form7">
+                    <div class="modal-body">
+                        <input type="hidden" name="choice" value="7"/>
+                        <div class="form-group">
+                            <label for="num">num</label>
+                            <input name="num" type="text" class="form-control" id="num"
+                                aria-describedby="numHelp" placeholder="num">
+                            <small id="numHelp" class="form-text text-muted">num的参数说明</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal7">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="Modal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel8" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel8">
+                        算法8
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                </div>
+                <form onsubmit="return false" id="form8">
+                    <div class="modal-body">
+                        <input type="hidden" name="choice" value="8"/>
+                        <h5>没有找到算法8的声明</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="SubmitModal8">
+                            提交
+                        </button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap-table/1.13.1/bootstrap-table.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap-table/1.13.1/locale/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript" src="{% static 'js/fileinput.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/file-zh.js' %}"></script>
 {#    <script type="text/javascript" src="{% static 'js/fire.js' %}"></script>#}
@@ -222,6 +406,7 @@
         };
 
         var renderTab = function(){
+            /** 表格语言可以切换为中文 */
             let dataArr = [{
                 "name": "チルノ",
                 "skill": "操纵冷气程度的能力",
@@ -255,22 +440,29 @@
             }];
             let tabConfig = {
                 data: dataArr,
+                striped: true, //是否显示行间隔色
+                pageNumber: 1, //初始化加载第一页
+                pagination: true, //是否分页
+                sidePagination: 'client', //server:服务器端分页|client：前端分页
+                pageSize: 4, //单页记录数
                 columns: [{
-                  field: 'name',
-                  title: '名字',
+                    field: 'name',
+                    title: '名字',
                 }, {
-                  field: 'skill',
-                  title: '能力'
+                    field: 'skill',
+                    title: '能力'
                 }, {
-                  field: 'age',
-                  title: '年龄'
+                    field: 'age',
+                    title: '年龄',
+                    sortable: true
                 }, {
-                  field: 'home',
-                  title: '居住地'
+                    field: 'home',
+                    title: '居住地'
                 }, {
-                  field: 'color',
-                  title: '标志颜色'
-                }]};
+                    field: 'color',
+                    title: '标志颜色'
+                }]
+            };
             $("#tableLeft").bootstrapTable(tabConfig);
             $("#tableRight").bootstrapTable(tabConfig);
         }
