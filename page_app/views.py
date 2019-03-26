@@ -39,7 +39,22 @@ def add_ab_(request, a, b):
 
 
 def index(request):
-    return render(request, 'index.html')
+
+    # 获取历史记录中的目录
+    templates_path_save_backup_tu = os.path.join(TEMPLATES_PATH, 'save_backup_tu')
+    list_dir = os.listdir(templates_path_save_backup_tu)
+    history_list = []
+    for dirs in list_dir:
+        templates_path_save_backup_tu_date = os.path.join(templates_path_save_backup_tu, dirs)
+        date = templates_path_save_backup_tu_date.split('\\')[-1]  # 获取时间
+        print('日期:', date)
+        html = get_all_html_file(templates_path_save_backup_tu_date)  # 获取历史html路径
+        history = {
+            'history_date': date,
+            'history_data_html': date + '/' + html[0].replace('\\', '/').split('/')[-1]
+        }
+        history_list.append(history)
+    return render(request, 'index.html', context={'history': history_list})
 
 
 def index1(request):
