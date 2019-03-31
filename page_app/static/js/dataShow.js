@@ -41,11 +41,13 @@ setTimeout(function () {
     /* 上传Form处理，modal弹窗对象、form表格对象、url接口、fSuccess成功回调函数、 fFail失败回调函数*/
     let uploadForm = function(modal, form, url, fSuccess, fFail){
         modal.click(function () {
+            cookie = $.cookie("csrftoken");
             $.ajax({
                 url: url,  // 算法1的接口
                 data: form.serialize(),
                 type: 'POST',
                 async: true,
+                headers:{"X-CSRFToken":cookie},
                 success: function(res){
                     fSuccess(res);
                     },
@@ -58,7 +60,7 @@ setTimeout(function () {
 
 function ctrl(con){
 
-
+    let iframe = $('#showHtml');
     switch (con) {
             /*
              * 弹窗相关文档参阅：
@@ -73,11 +75,21 @@ function ctrl(con){
                 /*modal1.on('hide.bs.modal', function () {
                     alert('弹窗被关闭');
                 });*/
-                uploadForm($('#SubmitModal1'), $("#form1"), '/url1/算法1接口', function(res){
-                    console.log(res);  // 成功回调函数
-                    modal1.modal('hide') // 关闭弹窗
+                uploadForm($('#SubmitModal1'), $("#form1"), "/index/", function(res){
+                    console.log(res.success);  // 成功回调函数
+                        //iframe.attr("src", '/show_html1/'+src).then(resizeIframe);
+                        console.log('更换show_html');
+                        window.location.reload();
+                        modal1.modal('hide') // 关闭弹窗
+                    // if(res.success == 1){
+                    //
+                    // }else {
+                    //     alert('please wait while!')
+                    // }
+
                 }, function(res){
                     console.error(res);  // 失败回调函数
+                    // alert(res.error)
                 });
                 break;
             case '2':
@@ -85,8 +97,10 @@ function ctrl(con){
                 modal2.modal({ // 可以在这里通过remote属性添加HTML页面作为弹窗内容
                     backdrop: false
                 });
-                uploadForm($('#SubmitModal2'), $("#form2"), '/url2/算法2接口', function(res){
-                    console.log(res);  // 成功回调函数
+                uploadForm($('#SubmitModal2'), $("#form2"), '/index/', function(res){
+                    console.log(res.success);  // 成功回调函数
+                    console.log('更换show_html');
+                    window.location.reload();
                     modal2.modal('hide') // 关闭弹窗
                 }, function(res){
                     console.error(res);  // 失败回调函数
@@ -94,19 +108,21 @@ function ctrl(con){
                 break;
             case '3':
                 /** 这个是文件操作，可以直接拼接到data中传入后端*/
-                if (dataShow.uploadFile == null) {
-                    alert("未选择文件");
-                } else {
-                    alert("已选择文件");
-                    console.log(dataShow.uploadFile)
-                }
+                // if (dataShow.uploadFile == null) {
+                //     alert("未选择文件");
+                // } else {
+                //     alert("已选择文件111111");
+                //     console.log(dataShow.uploadFile)
+                // }
 
                 let modal3 = $("#Modal3");
                 modal3.modal({ // 可以在这里通过remote属性添加HTML页面作为弹窗内容
                     backdrop: false
                 });
-                uploadForm($('#SubmitModal3'), $("#form3"), '/url3/算法3接口', function(res){
-                    console.log(res);  // 成功回调函数
+                uploadForm($('#SubmitModal3'), $("#form3"), '/index/', function(res){
+                    console.log(res.success);  // 成功回调函数
+                    console.log('更换show_html');
+                    window.location.reload();
                     modal3.modal('hide') // 关闭弹窗
                 }, function(res){
                     console.error(res);  // 失败回调函数
@@ -117,8 +133,10 @@ function ctrl(con){
                 modal4.modal({ // 可以在这里通过remote属性添加HTML页面作为弹窗内容
                     backdrop: false
                 });
-                uploadForm($('#SubmitModal4'), $("#form4"), '/url4/算法4接口', function(res){
-                    console.log(res);  // 成功回调函数
+                uploadForm($('#SubmitModal4'), $("#form4"), '/index/', function(res){
+                    console.log(res.success);  // 成功回调函数
+                    console.log('更换show_html');
+                    window.location.reload();
                     modal4.modal('hide') // 关闭弹窗
                 }, function(res){
                     console.error(res);  // 失败回调函数
@@ -129,8 +147,10 @@ function ctrl(con){
                 modal5.modal({ // 可以在这里通过remote属性添加HTML页面作为弹窗内容
                     backdrop: false
                 });
-                uploadForm($('#SubmitModal5'), $("#form5"), '/url5/算法5接口', function(res){
-                    console.log(res);  // 成功回调函数
+                uploadForm($('#SubmitModal5'), $("#form5"), '/index/', function(res){
+                    console.log(res.success);  // 成功回调函数
+                    console.log('更换show_html');
+                    window.location.reload();
                     modal5.modal('hide') // 关闭弹窗
                 }, function(res){
                     console.error(res);  // 失败回调函数
@@ -141,8 +161,10 @@ function ctrl(con){
                 modal6.modal({ // 可以在这里通过remote属性添加HTML页面作为弹窗内容
                     backdrop: false
                 });
-                uploadForm($('#SubmitModal6'), $("#form6"), '/url6/算法6接口', function(res){
-                    console.log(res);  // 成功回调函数
+                uploadForm($('#SubmitModal6'), $("#form6"), '/index/', function(res){
+                    console.log(res.success);  // 成功回调函数
+                    console.log('更换show_html');
+                    window.location.reload();
                     modal6.modal('hide') // 关闭弹窗
                 }, function(res){
                     console.error(res);  // 失败回调函数
@@ -153,8 +175,10 @@ function ctrl(con){
                 modal7.modal({ // 可以在这里通过remote属性添加HTML页面作为弹窗内容
                     backdrop: false
                 });
-                uploadForm($('#SubmitModal7'), $("#form7"), '/url3/算法3接口', function(res){
-                    console.log(res);  // 成功回调函数
+                uploadForm($('#SubmitModal7'), $("#form7"), '/index/', function(res){
+                    console.log(res.success);  // 成功回调函数
+                    console.log('更换show_html');
+                    window.location.reload();
                     modal7.modal('hide') // 关闭弹窗
                 }, function(res){
                     console.error(res);  // 失败回调函数
@@ -165,8 +189,10 @@ function ctrl(con){
                 modal8.modal({ // 可以在这里通过remote属性添加HTML页面作为弹窗内容
                     backdrop: false
                 });
-                uploadForm($('#SubmitModal8'), $("#form8"), '/url3/算法3接口', function(res){
-                    console.log(res);  // 成功回调函数
+                uploadForm($('#SubmitModal8'), $("#form8"), '/index/', function(res){
+                    console.log(res.success);  // 成功回调函数
+                    console.log('更换show_html');
+                    window.location.reload();
                     modal8.modal('hide') // 关闭弹窗
                 }, function(res){
                     console.error(res);  // 失败回调函数

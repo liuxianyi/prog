@@ -44,21 +44,21 @@ class Holder(object):
             data_col = df.columns.values
             data = df.values
 
-        random_clear = np.random.randn()
-        if random_clear < 0.3 :
-            self.clear_holder()
+        # random_clear = np.random.randn()
+        # if random_clear < 0.3:
+        #     self.clear_holder()
 
         if choice == 1:
-            self.kmeans.tu_kmeans(v=data,n_c=param["n_c"],dataname=dataname)
+            self.kmeans.tu_kmeans(v=data,n_c=param["n_c"], dataname=dataname)
         if choice == 2:
-            func_name=["tu_pca","tu_spca"]
+            func_name=["tu_pca", "tu_spca"]
             func = getattr(self.pca,func_name[other])
             if other == 0:
                 message = func(dataname=dataname,components_ratio=param["components_ratio"],components_n=param["components_n"],data=data)
             else:
                 message = func(dataname=dataname,components_n=param["components_n"],data=data)
         if choice == 3:
-            if data ==  None:
+            if data == None:
                 self.guss.tu_Gussian(dataname=dataname,choice=2)
             else:
                 ##############
@@ -68,7 +68,7 @@ class Holder(object):
                 self.guss.tu_Gussian(dataname=dataname, X=X, TrainData=TrainData,choice=param["guss_choice"])
                 #self.guss.tu_Gussian(dataname=dataname,X=data[:,0:-1],TrainData=data[:,-1],choice=param["guss_choice"])
         if choice == 4:
-            message = self.corr.corr_m(dataname=dataname,data_place=param["data_place"])
+            message = self.corr.corr_m(dataname=dataname, data_place=param["data_place"])
         if choice == 5:
             self.china.china_city(dataname=dataname,data=data)
         if choice == 6:
@@ -155,8 +155,8 @@ class Holder(object):
             if len(null[null != 0]) != 0:
                 message.append("数据错误：数据存在缺失，请处理后继续")
         return message
-hole=Holder()
-hole.holder(7, "data",None,None,1)
+# hole=Holder()
+# hole.holder(7, "data",None,None,1)
 #hole.isnull("d")
 # df = pd.read_excel("/home/yhw/桌面/2019_MCM-ICM_Problems/2012年工作簿4.xlsx")
 # print df.size,df.shape

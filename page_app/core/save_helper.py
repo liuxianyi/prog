@@ -7,7 +7,7 @@ from data_goog.settings import *
 
 
 def date_create():
-    now_time = datetime.datetime.now().strftime('%Y-%m-%d')
+    now_time = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
     return now_time
 
 def save_txt_helper(data,data_name):
@@ -23,11 +23,13 @@ def save_txt_helper(data,data_name):
         os.mkdir(templates_path_save_backup)
 
     date = str(date_create())
-    templates_path_save_show_date = os.path.join(templates_path_save_show, date)
+    templates_path_save_show_date = os.path.join(templates_path_save_show, 'last_info')
     templates_path_save_backup_date = os.path.join(templates_path_save_backup, date)
     if not os.path.exists(templates_path_save_backup_date):
-        os.mkdir(templates_path_save_show_date)
         os.mkdir(templates_path_save_backup_date)
+
+    if not os.path.exists(templates_path_save_show_date):
+        os.mkdir(templates_path_save_show_date)
     # if not os.path.exists("save_backup/"+date):
     #     os.mkdir("save_show/"+date)
     #     os.mkdir("save_backup/"+date)
@@ -56,16 +58,17 @@ def save_tu_helper(echart,data_name):
     #     os.mkdir("save_backup_tu")
 
     date=str(date_create())
-    templates_path_save_show_tu_date = os.path.join(templates_path_save_show_tu, date)
+    templates_path_save_show_tu_date = os.path.join(templates_path_save_show_tu, 'last_info')
     templates_path_save_backup_tu_date = os.path.join(templates_path_save_backup_tu, date)
     # if not os.path.exists("save_backup_tu/"+date):
     #     os.mkdir("save_show_tu/"+date)
     #     os.mkdir("save_backup_tu/"+date)
 
-    if not os.path.exists(os.path.join(templates_path_save_show_tu, date)):
-        os.mkdir(templates_path_save_show_tu_date)
+    if not os.path.exists(templates_path_save_backup_tu_date):
         os.mkdir(templates_path_save_backup_tu_date)
 
+    if not os.path.exists(templates_path_save_show_tu_date):
+        os.mkdir(templates_path_save_show_tu_date)
 
     # file_name_show="save_show_tu/"+date+"/show"
     # file_name_backup="save_backup_tu/"+date+"/"+data_name

@@ -17,5 +17,8 @@ def get_all_html_file(file_path):
         # else:
         file_ = os.path.join(file_path, fi_d)
         file_name.append(file_)
-        print('file_name', file_)
+        # print('file_name', file_)
     return file_name
+
+
+# def get_html_data(file):

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/dataShow.css' %}">
     <link rel="stylesheet prefetch" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/fileinput.min.css' %}">
-  <link href="https://cdn.bootcss.com/bootstrap-table/1.13.1/bootstrap-table.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.13.1/bootstrap-table.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'pic/favicon.ico' %}" type="image/x-icon">
 </head>
 
@@ -75,12 +75,13 @@
         </div>
 
         <!-- File Input, DOC: https://github.com/kartik-v/bootstrap-fileinput/wiki -->
-        <form class="form-inline my-2 my-lg-0" onsubmit="return false;">
-            <input class="file" type="file" name="file" id="toUpload" value="put your file here(.txt/.xls)" aria-label="File">
+        <form onsubmit="return checkLength()" class="form-inline my-2 my-lg-0"  method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input class="" type="file" name="file_name" id="toUpload" value="put your file here(.txt/.xls)" aria-label="File">
+            <button type="submit" class="btn btn-outline-success" ><i class="icon-upload-alt"></i> UpLoad</button>
         </form>
-
-        <button type="button" class="btn btn-outline-success" onclick="ctrl('3')"><i class="icon-upload-alt"></i> UpLoad</button>
     </nav>
+
 
     <!-- main content -->
     <div class="container-fluid h-100 yscroll">
@@ -119,7 +120,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
                     </button>
                 </div>
-                <form onsubmit="return false" id="form1">
+                <form onsubmit="return true" id="form1">
                     <div class="modal-body">
                         <div class="form-group">
                             {#选项#}
@@ -353,15 +354,18 @@
     </div><!-- /.modal -->
 
     <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie-1.4.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="https://cdn.bootcss.com/bootstrap-table/1.13.1/bootstrap-table.min.js"></script>
-  <script src="https://cdn.bootcss.com/bootstrap-table/1.13.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.13.1/bootstrap-table.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.13.1/locale/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript" src="{% static 'js/fileinput.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/file-zh.js' %}"></script>
 {#    <script type="text/javascript" src="{% static 'js/fire.js' %}"></script>#}
     <script type="text/javascript" src="{% static 'js/dataShow.js' %}"></script>
 
     <script type="text/javascript">
+
+        //document.getElementById("showHtml").contentWindow.location.reload(true);
         let iframe = $('#showHtml');
 
         /** 替换图表 */
@@ -388,7 +392,7 @@
             let titleObj = $("#historyTitle");
             {% autoescape off %}
                 let showObj = {{ history }};
-                {% endautoescape %}
+            {% endautoescape %}
             titleObj.html("历史记录");
             $("#historyModalLabel").modal();
             let modalDiv = $("#historyModalDiv");
@@ -407,8 +411,11 @@
 
         var renderTab = function(){
             /** 表格语言可以切换为中文 */
-            let dataArr = [{
-                "name": "チルノ",
+            {% autoescape off %}
+            let dataArr = {{ list_dict_data }};
+            {% endautoescape %}
+                /*[{
+                "name": "liuチルノ",
                 "skill": "操纵冷气程度的能力",
                 "age": 60,
                 "home": "霧の湖",
@@ -437,7 +444,7 @@
                 "age": 0,
                 "home": "地霊殿",
                 "color": "PURPLE"
-            }];
+            }];*/
             let tabConfig = {
                 data: dataArr,
                 striped: true, //是否显示行间隔色
@@ -446,21 +453,18 @@
                 sidePagination: 'client', //server:服务器端分页|client：前端分页
                 pageSize: 4, //单页记录数
                 columns: [{
-                    field: 'name',
-                    title: '名字',
+                    field: 'c1',
+                    title: 'COL1',
                 }, {
-                    field: 'skill',
-                    title: '能力'
+                    field: 'c2',
+                    title: 'COL2'
                 }, {
-                    field: 'age',
-                    title: '年龄',
+                    field: 'c3',
+                    title: 'COL3',
                     sortable: true
                 }, {
-                    field: 'home',
-                    title: '居住地'
-                }, {
-                    field: 'color',
-                    title: '标志颜色'
+                    field: 'c4',
+                    title: 'COL4'
                 }]
             };
             $("#tableLeft").bootstrapTable(tabConfig);
