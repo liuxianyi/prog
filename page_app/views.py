@@ -91,6 +91,7 @@ def index(request):
         print(param)
     else:
         param = 1  # 默认1
+    excel_data_list = []
     if request.is_ajax():
         print('ajax success!')
         ajax_flag = 1
@@ -110,6 +111,7 @@ def index(request):
             print(excel)
             # 解析excel数据
             if 'xlsx' == excel:
+                # excel的保存
                 # hole = Holder()
                 # hole.holder(1, "data", None, None, 1)  # 默认算法
                 if file:
@@ -120,6 +122,19 @@ def index(request):
                             f.write(chunk)
                         f.close()
                     print("form submit success!")
+                # excel的读取前十行 四列
+                data = xlrd.open_workbook(filename=None, file_contents=file.read())
+                table = data.sheets()[0]  # # 打开第一张表
+
+                for i in range(0, 10):
+                    excel_data = {
+                        'c1': table.row_values(i)[1],
+                        'c2': table.row_values(i)[2],
+                        'c3': table.row_values(i)[3],
+                        'c4': table.row_values(i)[4]
+                    }
+                    excel_data_list.append(excel_data)
+
     if ajax_flag == 1 | form_submit_flag == 1:
         hole = Holder()
         print('flag_arrive!')
@@ -188,7 +203,7 @@ def index(request):
             list_dict_data.append(dict_data)
     print(list_dict_data)
     return render(request, 'index.html', context={'history': history_list, 'history_data': history_data,
-                                                  'list_dict_data': list_dict_data})
+                                                  'list_dict_data': list_dict_data, 'excel_data_list': excel_data_list})
 
 
 def upload(request):
